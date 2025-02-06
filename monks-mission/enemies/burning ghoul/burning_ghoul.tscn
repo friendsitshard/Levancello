@@ -1,0 +1,148 @@
+[gd_scene load_steps=29 format=3 uid="uid://bbltoplrd3m1k"]
+
+[ext_resource type="Script" path="res://enemies/burning ghoul/burning_ghoul.gd" id="1_75b01"]
+[ext_resource type="Texture2D" uid="uid://d3omf44m0psrh" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death2.png" id="1_dmgha"]
+[ext_resource type="Texture2D" uid="uid://dhkkm1whcscdw" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death3.png" id="2_y15rh"]
+[ext_resource type="Texture2D" uid="uid://dwdfr6qr1hlda" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death4.png" id="3_4feb0"]
+[ext_resource type="Texture2D" uid="uid://cxik3f1xkmah0" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death5.png" id="4_elxiv"]
+[ext_resource type="Texture2D" uid="uid://cwmye8i754vb6" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death6.png" id="5_7dxju"]
+[ext_resource type="Texture2D" uid="uid://i35hwbl3hwob" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death7.png" id="6_1he7w"]
+[ext_resource type="Texture2D" uid="uid://bppp0ewqd4cdd" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death8.png" id="7_yhl5u"]
+[ext_resource type="Texture2D" uid="uid://b80c0e0k5amx6" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-1.png" id="9_fynf0"]
+[ext_resource type="Texture2D" uid="uid://b7myyrj8uvlll" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-2.png" id="10_vjwqb"]
+[ext_resource type="Texture2D" uid="uid://bgnubdecetth6" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-3.png" id="11_5iok3"]
+[ext_resource type="Texture2D" uid="uid://ybbt2shdty8f" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-4.png" id="12_rdq6e"]
+[ext_resource type="Texture2D" uid="uid://e68oi1k6uct8" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-5.png" id="13_itvap"]
+[ext_resource type="Texture2D" uid="uid://bjxbk1an28g8c" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-6.png" id="14_0bypj"]
+[ext_resource type="Texture2D" uid="uid://buxicker6l8cb" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-7.png" id="15_3lddb"]
+[ext_resource type="Texture2D" uid="uid://30ntipvsgt6p" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v1/burning-ghoul-8.png" id="16_cummh"]
+[ext_resource type="Texture2D" uid="uid://cekkbk705m3xl" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul1.png" id="17_e0j6t"]
+[ext_resource type="Texture2D" uid="uid://msy80v4loouu" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul2.png" id="18_web44"]
+[ext_resource type="Texture2D" uid="uid://bffxx6jmiucqu" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul3.png" id="19_nbvsr"]
+[ext_resource type="Texture2D" uid="uid://ej4o4s8lac8g" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul4.png" id="20_ja51t"]
+[ext_resource type="Texture2D" uid="uid://cdfxayg4u5u5x" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul5.png" id="21_0n8ws"]
+[ext_resource type="Texture2D" uid="uid://dglvfjrb54k4b" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul6.png" id="22_rpxbo"]
+[ext_resource type="Texture2D" uid="uid://dic2firnvkbav" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul7.png" id="23_wisa1"]
+[ext_resource type="Texture2D" uid="uid://csh5ak7wyvwgy" path="res://gothicvania church files/Assets/SPRITES/burning-ghoul/sprites/v2/burning-ghoul8.png" id="24_cuju3"]
+[ext_resource type="AudioStream" uid="uid://b58v6xgupkti2" path="res://audio/death.wav" id="26_7f75x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anku6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dmgha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y15rh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4feb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_elxiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7dxju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1he7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yhl5u")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_fynf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vjwqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5iok3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rdq6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_itvap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0bypj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3lddb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cummh")
+}],
+"loop": true,
+"name": &"run_v1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_e0j6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_web44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nbvsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ja51t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0n8ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_rpxbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wisa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_cuju3")
+}],
+"loop": true,
+"name": &"run_v2",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgvqp"]
+radius = 12.0
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0e4ky"]
+radius = 15.0
+height = 42.0
+
+[node name="burning_ghoul" type="CharacterBody2D"]
+script = ExtResource("1_75b01")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_anku6")
+animation = &"death"
+autoplay = "run_v1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_cgvqp")
+
+[node name="direction_timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="HitShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_0e4ky")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_7f75x")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="direction_timer" to="." method="_on_direction_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

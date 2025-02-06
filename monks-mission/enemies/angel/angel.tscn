@@ -1,0 +1,108 @@
+[gd_scene load_steps=21 format=3 uid="uid://bah7gncnvp6no"]
+
+[ext_resource type="Texture2D" uid="uid://c7po55wjqrvjd" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel1.png" id="1_a8g3o"]
+[ext_resource type="Script" path="res://enemies/angel/angel.gd" id="1_drw41"]
+[ext_resource type="Texture2D" uid="uid://d3omf44m0psrh" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death2.png" id="2_dym8y"]
+[ext_resource type="Texture2D" uid="uid://bo8o6sglvwm3w" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel2.png" id="2_k3vus"]
+[ext_resource type="Texture2D" uid="uid://dhkkm1whcscdw" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death3.png" id="3_2bdf0"]
+[ext_resource type="Texture2D" uid="uid://dk6r4f1prr0rc" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel3.png" id="3_pxsbc"]
+[ext_resource type="Texture2D" uid="uid://dwdfr6qr1hlda" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death4.png" id="4_8akdt"]
+[ext_resource type="Texture2D" uid="uid://cmreisbug6u0v" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel4.png" id="4_pxavk"]
+[ext_resource type="Texture2D" uid="uid://c1rqkuo5kq2vk" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel5.png" id="5_5kuii"]
+[ext_resource type="Texture2D" uid="uid://cxik3f1xkmah0" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death5.png" id="5_46ol2"]
+[ext_resource type="Texture2D" uid="uid://drboevhms0bl0" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel6.png" id="6_g3ch2"]
+[ext_resource type="Texture2D" uid="uid://cwmye8i754vb6" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death6.png" id="6_q646u"]
+[ext_resource type="Texture2D" uid="uid://cwb8lfg4mgfuc" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel7.png" id="7_31dyg"]
+[ext_resource type="Texture2D" uid="uid://i35hwbl3hwob" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death7.png" id="7_r17da"]
+[ext_resource type="Texture2D" uid="uid://b2pcof8ma3wyf" path="res://gothicvania church files/Assets/SPRITES/angel/sprites/idle/angel8.png" id="8_b7npr"]
+[ext_resource type="Texture2D" uid="uid://bppp0ewqd4cdd" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death8.png" id="8_ifaup"]
+[ext_resource type="AudioStream" uid="uid://b58v6xgupkti2" path="res://audio/death.wav" id="17_w64ao"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dn4uw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dym8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2bdf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8akdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_46ol2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q646u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r17da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ifaup")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a8g3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k3vus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pxsbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pxavk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5kuii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g3ch2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_31dyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b7npr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7337"]
+radius = 12.0
+height = 56.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uwex"]
+radius = 16.0
+height = 60.0
+
+[node name="angel" type="CharacterBody2D"]
+script = ExtResource("1_drw41")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dn4uw")
+animation = &"death"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_j7337")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="HitShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_3uwex")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_w64ao")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

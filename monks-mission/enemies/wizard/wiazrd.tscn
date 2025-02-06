@@ -1,0 +1,98 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbse0aigglyxo"]
+
+[ext_resource type="Script" path="res://enemies/wizard/wiazrd.gd" id="1_rgcru"]
+[ext_resource type="Texture2D" uid="uid://d3omf44m0psrh" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death2.png" id="2_ttd8r"]
+[ext_resource type="Texture2D" uid="uid://dhkkm1whcscdw" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death3.png" id="3_n84gv"]
+[ext_resource type="Texture2D" uid="uid://dwdfr6qr1hlda" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death4.png" id="4_t7x6m"]
+[ext_resource type="Texture2D" uid="uid://cxik3f1xkmah0" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death5.png" id="5_servr"]
+[ext_resource type="Texture2D" uid="uid://cwmye8i754vb6" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death6.png" id="6_sx8rd"]
+[ext_resource type="Texture2D" uid="uid://i35hwbl3hwob" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death7.png" id="7_xjnj4"]
+[ext_resource type="Texture2D" uid="uid://bppp0ewqd4cdd" path="res://gothicvania church files/Assets/SPRITES/fx/enemy-death/enemy-death-sprites/enemy-death8.png" id="8_ei5gi"]
+[ext_resource type="Texture2D" uid="uid://kisdf8mismpo" path="res://gothicvania church files/Assets/SPRITES/wizard/idle-sprites/wizard-idle-1.png" id="9_dn2nc"]
+[ext_resource type="Texture2D" uid="uid://b7axl5s6vuqm2" path="res://gothicvania church files/Assets/SPRITES/wizard/idle-sprites/wizard-idle-2.png" id="10_2d2dj"]
+[ext_resource type="Texture2D" uid="uid://d2csxgieut6ko" path="res://gothicvania church files/Assets/SPRITES/wizard/idle-sprites/wizard-idle-3.png" id="11_4ic3j"]
+[ext_resource type="Texture2D" uid="uid://caodlhgf1pvhk" path="res://gothicvania church files/Assets/SPRITES/wizard/idle-sprites/wizard-idle-4.png" id="12_5cj71"]
+[ext_resource type="Texture2D" uid="uid://un8qmhetkqmy" path="res://gothicvania church files/Assets/SPRITES/wizard/idle-sprites/wizard-idle-5.png" id="13_ww87j"]
+[ext_resource type="AudioStream" uid="uid://b58v6xgupkti2" path="res://audio/death.wav" id="14_m7uuh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hph8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ttd8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n84gv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t7x6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_servr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sx8rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xjnj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ei5gi")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_dn2nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2d2dj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4ic3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5cj71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ww87j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8a60e"]
+radius = 8.0
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uf5na"]
+radius = 12.0
+height = 44.0
+
+[node name="wiazrd" type="CharacterBody2D"]
+script = ExtResource("1_rgcru")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0hph8")
+animation = &"death"
+autoplay = "idle"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_8a60e")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+
+[node name="HitShape2D" type="CollisionShape2D" parent="HitArea2D"]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_uf5na")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_m7uuh")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
